@@ -7,4 +7,10 @@ Surveyor::Engine.routes.draw do
   match '/:survey_code/:response_set_code', :to      => 'surveyor#update', :as => 'update_my_survey', :via  => :put
 
 
+  match '/:survey_code/', :to                         => 'surveyor#list', :as => 'list_survey', :via     => :get
+  match '.:survey_code/', :to                         => 'surveyor#list', :as => 'export_survey', :via     => :get
+  match '/:survey_code/:response_set_code/take', :to => 'surveyor#edit', :as   => 'edit_my_survey', :via    => :get
+  match '/:survey_code/:response_set_code', :to      => 'surveyor#update', :as => 'update_my_survey', :via  => :put
+
+
 end
