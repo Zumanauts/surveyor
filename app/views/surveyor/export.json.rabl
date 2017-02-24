@@ -9,7 +9,7 @@ child @survey => :survey do
       node(:description,                :if => lambda {|s| !s.description.blank? }){|s| s.description }
       node(:reference_identifier,       :if => lambda {|s| !s.reference_identifier.blank? }){|s| s.reference_identifier }
 
-      child :questions_and_groups => :questions_and_groups do
+      child :questions => :questions_and_groups do
         # both questions and question_groups have id, text, help_text, reference_identifier, and type
         attribute :id
         node(:text,                     :if => lambda { |q| q.is_a?(Question)}){ |q| q.split(q.text, :pre) }
