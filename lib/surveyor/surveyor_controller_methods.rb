@@ -96,6 +96,38 @@ module Surveyor
       end
     end
 
+
+
+    def response_set_index
+      @response_sets = ResponseSet.joins(:survey).where('surveys.access_code = ?', params[:survey_code]).first
+    end
+
+    def response_set_create
+      @response_set = ResponseSet.create(response_set_params)
+    end
+
+    def response_set_show
+      set_response_set
+    end
+
+    def response_set_update
+
+    end
+
+
+
+    def set_response_set
+      @response_set = ResponseSet.includes({:responses => [:question, :answer]}).where(:id => params[:id]).first
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def response_set_params
+      params.require(:response_set).permit(:name)
+    end
+
+
+
+
     def load_and_update_response_set_with_retries(remaining=2)
       begin
         load_and_update_response_set
