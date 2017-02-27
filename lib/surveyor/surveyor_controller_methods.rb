@@ -10,6 +10,8 @@ module Surveyor
       before_filter :determine_if_javascript_is_enabled, :only => [:create, :update]
       before_filter :set_response_set_and_render_context, :only => [:edit, :show]
 
+      before_filter :set_response, :only => [:response_update, :response_show]
+
       layout 'surveyor_default'
       before_filter :set_locale
     end
@@ -97,32 +99,31 @@ module Surveyor
     end
 
 
-
-    def response_set_index
-      @response_sets = ResponseSet.joins(:survey).where('surveys.access_code = ?', params[:survey_code]).first
+    def responses_index
+      @responses = Response.joins(:response_set).includes([:answer, :question]).where('response_sets.id = ?', params[:rs_id])
     end
 
-    def response_set_create
-      @response_set = ResponseSet.create(response_set_params)
+    def responses_create
+      @response = Response.create(response_params)
     end
 
-    def response_set_show
-      set_response_set
+    def responses_show
     end
 
-    def response_set_update
-
+    def responses_update
+      @response.update(company_params)
+      @response
     end
 
 
 
-    def set_response_set
-      @response_set = ResponseSet.includes({:responses => [:question, :answer]}).where(:id => params[:id]).first
+    def set_response
+      @response = Response.where(:id => params[:id]).includes([:answer, :question]).first
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def response_set_params
-      params.require(:response_set).permit(:name)
+    def response_params
+      params.require(:response).permit(:answer_id, :question_id, :value)
     end
 
 
