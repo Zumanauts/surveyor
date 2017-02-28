@@ -24,7 +24,7 @@ child @survey => :survey do
         node(:post_text,                :if => lambda { |q| q.is_a?(Question) && !q.split(q.text, :post).blank? }){ |q| q.split(q.text, :post) }
 
         child :answers, :if => lambda { |q| q.is_a?(Question) && !q.answers.blank? } do
-          attribute :api_id                 => :id
+          attribute :id                 => :id
           node(:help_text,              :if => lambda { |a| !a.help_text.blank? }){ |a| a.help_text }
           node(:exclusive,              :if => lambda { |a| a.is_exclusive }){ |a| a.is_exclusive }
           node(:text){ |a| a.split(a.text, :pre) }

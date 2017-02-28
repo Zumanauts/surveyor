@@ -104,6 +104,7 @@ module Surveyor
     end
 
     def responses_create
+
       @response = Response.create(response_params)
     end
 
@@ -123,7 +124,7 @@ module Surveyor
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def response_params
-      params.require(:response).permit(:answer_id, :question_id, :value)
+      params.require(:response).permit(:answer_id, :question_id, :value, :response_set_id)
     end
 
 
