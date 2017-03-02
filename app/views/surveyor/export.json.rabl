@@ -3,12 +3,12 @@ attribute :id, :title
 node(:description,                  :if => lambda {|s| !s.description.blank? }){|s| s.description }
 node(:reference_identifier,         :if => lambda {|s| !s.reference_identifier.blank? }){|s| s.reference_identifier }
 
-child :sections => :sections do
+child :sections, :root => "sections", :object_root => false do
   attributes :title, :display_order, :id
   node(:description,                :if => lambda {|s| !s.description.blank? }){|s| s.description }
   node(:reference_identifier,       :if => lambda {|s| !s.reference_identifier.blank? }){|s| s.reference_identifier }
 
-  child :questions => :questions  do
+  child :questions, :root => "questions", :object_root => false  do
     # both questions and question_groups have id, text, help_text, reference_identifier, and type
     attribute :id
     node(:text,                     :if => lambda { |q| q.is_a?(Question)}){ |q| q.split(q.text, :pre) }
@@ -22,7 +22,7 @@ child :sections => :sections do
     node(:pick,                     :if => lambda { |q| q.is_a?(Question) && q.pick != "none" }){ |q| q.pick }
     node(:post_text,                :if => lambda { |q| q.is_a?(Question) && !q.split(q.text, :post).blank? }){ |q| q.split(q.text, :post) }
 
-    child :answers, :if => lambda { |q| q.is_a?(Question) && !q.answers.blank? } do
+    child :answers, :root => "answers", :object_root => false, :if => lambda { |q| q.is_a?(Question) && !q.answers.blank? } do
       attribute :id                 => :id
       node(:help_text,              :if => lambda { |a| !a.help_text.blank? }){ |a| a.help_text }
       node(:exclusive,              :if => lambda { |a| a.is_exclusive }){ |a| a.is_exclusive }
