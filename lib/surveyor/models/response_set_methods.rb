@@ -16,7 +16,7 @@ module Surveyor
         # Validations
         validates_presence_of :survey_id
         validates_associated :responses
-        validates_uniqueness_of :access_code
+        # validates_uniqueness_of :access_code
 
         # Derived attributes
         before_create :ensure_start_timestamp
@@ -30,6 +30,8 @@ module Surveyor
           hash.any?{|k,v| v.is_a?(Array) ? v.all?{|x| x.to_s.blank?} : v.to_s.blank?}
         end
       end
+
+
 
       def ensure_start_timestamp
         self.started_at ||= Time.now

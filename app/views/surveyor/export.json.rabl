@@ -1,5 +1,5 @@
 object false
-child @survey => :survey do
+child @survey => :schema do
     attribute :id, :title
     node(:description,                  :if => lambda {|s| !s.description.blank? }){|s| s.description }
     node(:reference_identifier,         :if => lambda {|s| !s.reference_identifier.blank? }){|s| s.reference_identifier }

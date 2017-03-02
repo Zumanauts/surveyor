@@ -99,21 +99,34 @@ module Surveyor
     end
 
 
+    def survey_by_response_set_id
+      rs = ResponseSet.find(params[:rs_id])
+      render_404 and return if rs.nil?
+      @survey = rs.survey
+      render_404 and return if @survey.nil?
+      render "surveyor/export"
+    end
+
+
     def responses_index
       @responses = Response.joins(:response_set).includes([:answer, :question]).where('response_sets.id = ?', params[:rs_id])
+      render "surveyor/responses_index"
     end
 
     def responses_create
 
       @response = Response.create(response_params)
+      render "surveyor/responses_show"
     end
 
     def responses_show
+      render "surveyor/responses_show"
+
     end
 
     def responses_update
       @response.update(company_params)
-      @response
+      render "surveyor/responses_show"
     end
 
 
