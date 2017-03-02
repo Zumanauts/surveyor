@@ -1,7 +1,7 @@
 require 'rabl'
 Rabl.register!
 Rabl.configure {|config| config.include_child_root = false }
-Rabl.configure {|config| config.include_json_root = false }
+Rabl.configure {|config| config.include_json_root = true }
 module Surveyor
   module SurveyorControllerMethods
     extend ActiveSupport::Concern
