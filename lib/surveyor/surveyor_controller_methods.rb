@@ -113,7 +113,8 @@ module Surveyor
 
     def responses_create
 
-      @response = Response.create(response_params)
+      fixed_params = translate_to_correct_value_field(response_params)
+      @response = Response.create(fixed_params)
       render "surveyor/responses_show"
     end
 
@@ -123,10 +124,30 @@ module Surveyor
     end
 
     def responses_update
-      @response.update(company_params)
+      fixed_params = translate_to_correct_value_field(response_params)
+      @response.update(fixed_params)
       render "surveyor/responses_show"
     end
 
+
+    def translate_to_correct_value_field(params)
+
+      answer = Answer.find(params[:answer_id])
+
+      return params if answer.nil?
+
+      value = params.delete(:value)
+      value_param_name = case answer.response_class.to_sym
+                           when :string, :text, :integer, :float, :datetime
+                             "#{answer.response_class}_value"
+                           when :date, :time, :datetime
+                             "datetime_value"
+                           else # :answer_id
+                             nil
+                         end
+      params.merge!({value_param_name.to_sym => value}) unless value_param_name.nil?
+      params
+    end
 
 
     def set_response
