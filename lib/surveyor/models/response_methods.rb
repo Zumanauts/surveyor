@@ -43,6 +43,7 @@ module Surveyor
         write_attribute :answer_id, (val.is_a?(Array) ? val.detect{|x| !x.to_s.blank?} : val)
       end
       def correct?
+        return false if json_value.presence.nil?
         question.correct_answer.nil? or self.answer.response_class != "answer" or (question.correct_answer.id.to_i == answer.id.to_i)
       end
 
