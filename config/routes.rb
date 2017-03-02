@@ -1,9 +1,9 @@
 Surveyor::Engine.routes.draw do
 
   match '/responses', :to                           => 'surveyor#responses_index', :as   => 'responses_by_rs', :via    => :get, constraints: { format: 'json' }
-  match '/responses/:question_id', :to              => 'surveyor#responses_show', :as    => 'response_show', :via     => :get, constraints: { format: 'json' }
+  match '/responses/:id', :to              => 'surveyor#responses_show', :as    => 'response_show', :via     => :get, constraints: { format: 'json' }
   match '/responses', :to                           => 'surveyor#responses_create', :as  => 'response_create', :via        => :post, constraints: { format: 'json' }
-  match '/responses/:question_id', :to              => 'surveyor#responses_update', :as  => 'response_update', :via   => :patch, constraints: { format: 'json' }
+  match '/responses/:id', :to              => 'surveyor#responses_update', :as  => 'response_update', :via   => [:patch, :put], constraints: { format: 'json' }
 
 
   # match '/schemas', :to                                     => 'surveyor#new', :as    => 'available_surveys', :via => :get

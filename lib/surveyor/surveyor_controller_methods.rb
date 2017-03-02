@@ -8,7 +8,7 @@ module Surveyor
       before_filter :determine_if_javascript_is_enabled, :only => [:create, :update]
       before_filter :set_response_set_and_render_context, :only => [:edit, :show]
 
-      before_filter :set_response, :only => [:response_update, :response_show]
+      before_filter :set_response, :only => [:responses_update, :responses_show]
 
       layout 'surveyor_default'
       before_filter :set_locale
@@ -119,12 +119,16 @@ module Surveyor
     end
 
     def responses_show
+      render_404 and return if @response.nil?
       render "surveyor/responses_show"
 
     end
 
     def responses_update
       fixed_params = translate_to_correct_value_field(response_params)
+      fixed_params.delete(:question_id)
+      fixed_params.delete(:response_set_id)
+      render_404 and return if @response.nil?
       @response.update(fixed_params)
       render "surveyor/responses_show"
     end
