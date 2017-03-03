@@ -138,9 +138,9 @@ module Surveyor
 
       answer = Answer.find_by(id:params[:answer_id])
 
+      value = params.delete(:value)
       return params if answer.nil?
 
-      value = params.delete(:value)
       value_param_name = case answer.response_class.to_sym
                            when :string, :text, :integer, :float, :datetime
                              "#{answer.response_class}_value"
