@@ -136,7 +136,7 @@ module Surveyor
 
     def translate_to_correct_value_field(params)
 
-      answer = Answer.find(params[:answer_id])
+      answer = Answer.find_by(id:params[:answer_id])
 
       return params if answer.nil?
 
