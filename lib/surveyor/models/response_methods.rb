@@ -43,6 +43,7 @@ module Surveyor
         write_attribute :answer_id, (val.is_a?(Array) ? val.detect{|x| !x.to_s.blank?} : val)
       end
       def correct?
+        return false if self.answer.nil?
         return false if json_value.presence.nil? && self.answer.response_class != "answer"
         question.correct_answer.nil? or (question.correct_answer.id.to_i == answer.id.to_i)
       end
@@ -110,7 +111,7 @@ module Surveyor
       end
 
       def json_value
-        return nil if answer.response_class == "answer"
+        return nil if answer.nil? || answer.response_class == "answer"
 
         formats = {
           'datetime' => '%Y-%m-%dT%H:%M%:z',
