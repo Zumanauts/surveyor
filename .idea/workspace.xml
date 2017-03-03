@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82ecaef7-daa4-4d7b-b6b1-5f2a86db1228" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/surveyor/responses_index.json.rabl" afterPath="$PROJECT_DIR$/app/views/surveyor/responses_index.json.rabl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/surveyor/responses_show.json.rabl" afterPath="$PROJECT_DIR$/app/views/surveyor/responses_show.json.rabl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/surveyor/version.rb" afterPath="$PROJECT_DIR$/lib/surveyor/version.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -24,14 +27,14 @@
       <file leaf-file-name="surveyor_controller_methods.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/surveyor/surveyor_controller_methods.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1755">
+            <state relative-caret-position="15">
               <caret line="130" column="6" lean-forward="false" selection-start-line="130" selection-start-column="6" selection-end-line="130" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="version.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="version.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/surveyor/version.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
@@ -41,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="responses_index.json.rabl" pinned="false" current-in-tab="false">
+      <file leaf-file-name="responses_index.json.rabl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/surveyor/responses_index.json.rabl">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+              <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -106,8 +109,8 @@
       <file leaf-file-name="response_methods.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/surveyor/models/response_methods.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="45" column="57" lean-forward="false" selection-start-line="45" selection-start-column="57" selection-end-line="45" selection-end-column="57" />
+            <state relative-caret-position="15">
+              <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -117,7 +120,7 @@
         <entry file="file://$PROJECT_DIR$/app/views/surveyor/responses_show.json.rabl">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+              <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -177,10 +180,10 @@
         <option value="$PROJECT_DIR$/app/views/surveyor/export.json.rabl" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/lib/surveyor/surveyor_controller_methods.rb" />
-        <option value="$PROJECT_DIR$/app/views/surveyor/responses_index.json.rabl" />
-        <option value="$PROJECT_DIR$/app/views/surveyor/responses_show.json.rabl" />
         <option value="$PROJECT_DIR$/app/models/response.rb" />
         <option value="$PROJECT_DIR$/lib/surveyor/models/response_methods.rb" />
+        <option value="$PROJECT_DIR$/app/views/surveyor/responses_index.json.rabl" />
+        <option value="$PROJECT_DIR$/app/views/surveyor/responses_show.json.rabl" />
         <option value="$PROJECT_DIR$/lib/surveyor/version.rb" />
       </list>
     </option>
@@ -798,12 +801,12 @@
       <workItem from="1488370208396" duration="9317000" />
       <workItem from="1488409017006" duration="591000" />
       <workItem from="1488444116801" duration="14209000" />
-      <workItem from="1488538932141" duration="1669000" />
+      <workItem from="1488538932141" duration="1977000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85246000" />
+    <option name="totallyTimeSpent" value="85554000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="43" y="23" width="1397" height="877" extended-state="6" />
@@ -1150,26 +1153,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/surveyor/responses_show.json.rabl">
+    <entry file="file://$PROJECT_DIR$/lib/surveyor/models/response_methods.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/surveyor/responses_index.json.rabl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/surveyor/surveyor_controller_methods.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1755">
-          <caret line="130" column="6" lean-forward="false" selection-start-line="130" selection-start-column="6" selection-end-line="130" selection-end-column="6" />
+        <state relative-caret-position="15">
+          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1182,10 +1169,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/surveyor/models/response_methods.rb">
+    <entry file="file://$PROJECT_DIR$/lib/surveyor/surveyor_controller_methods.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="45" column="57" lean-forward="false" selection-start-line="45" selection-start-column="57" selection-end-line="45" selection-end-column="57" />
+        <state relative-caret-position="15">
+          <caret line="130" column="6" lean-forward="false" selection-start-line="130" selection-start-column="6" selection-end-line="130" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1194,6 +1181,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="19" lean-forward="false" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/surveyor/responses_show.json.rabl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/surveyor/responses_index.json.rabl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
           <folding />
         </state>
       </provider>
