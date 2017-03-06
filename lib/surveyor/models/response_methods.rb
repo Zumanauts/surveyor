@@ -14,7 +14,7 @@ module Surveyor
         attr_accessible *PermittedParams.new.response_attributes if defined? ActiveModel::MassAssignmentSecurity
 
         # Validations
-        validates_presence_of :question_id, :answer_id
+        validates_presence_of :question_id
       end
 
       module ClassMethods
