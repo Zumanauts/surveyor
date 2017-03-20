@@ -46,8 +46,8 @@ child :sections, :root => "sections", :object_root => false do
     #  end
     #end
 
-    child(:questions, :if => lambda{|x| x.is_a?(QuestionGroup)}) do
-      attributes :id
+    child :questions, :root => "questions", :object_root => false, :if => lambda{|x| x.is_a?(QuestionGroup)} do
+      attribute :id                 => :id
       node(:text){ |q| q.split(q.text, :pre) }
       node(:post_text, :if => lambda { |q| !q.split(q.text, :post).blank? }){ |q| q.split(q.text, :post) }
       node(:help_text, :if => lambda { |q| !q.help_text.blank? }){ |q| q.help_text }
@@ -56,8 +56,8 @@ child :sections, :root => "sections", :object_root => false do
       node(:type, :if => lambda { |q| q.display_type != "default" }){ |q| q.display_type }
       node(:pick, :if => lambda { |q| q.pick != "none" }){ |q| q.pick }
 
-      child :answers, :if => lambda { |q| !q.answers.blank? } do
-        attributes :api_id => :id
+      child :answers, :root => "answers", :object_root => false, :if => lambda { |q| !q.answers.blank? } do
+        attribute :id                 => :id
         node(:help_text, :if => lambda { |a| !a.help_text.blank? }){ |a| a.help_text }
         node(:is_exclusive, :if => lambda { |a| a.is_exclusive }){ |a| a.is_exclusive }
         node(:text){ |a| a.split(a.text, :pre) }
