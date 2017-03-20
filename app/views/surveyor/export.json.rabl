@@ -12,7 +12,7 @@ child :sections, :root => "sections", :object_root => false do
     # both questions and question_groups have id, text, help_text, reference_identifier, and type
     attribute :id
     node(:text,                     :if => lambda { |q| q.is_a?(Question)}){ |q| q.split(q.text, :pre) }
-    #node(:text,                     :if => lambda { |q| q.is_a?(QuestionGroup)}){ |q| q.text }
+    node(:text,                     :if => lambda { |q| q.is_a?(QuestionGroup)}){ |q| q.text }
     node(:help_text,                :if => lambda { |q| !q.help_text.blank? }){ |q| q.help_text }
     node(:reference_identifier,     :if => lambda { |q| !q.reference_identifier.blank? }){ |q| q.reference_identifier }
     node(:data_export_identifier,   :if => lambda { |q| !q.data_export_identifier.blank? }){ |q| q.data_export_identifier }
@@ -46,28 +46,28 @@ child :sections, :root => "sections", :object_root => false do
     #  end
     #end
 
-    #child(:questions, :if => lambda{|x| x.is_a?(QuestionGroup)}) do
-    #  attributes :api_id => :id
-    #  node(:text){ |q| q.split(q.text, :pre) }
-    #  node(:post_text, :if => lambda { |q| !q.split(q.text, :post).blank? }){ |q| q.split(q.text, :post) }
-    #  node(:help_text, :if => lambda { |q| !q.help_text.blank? }){ |q| q.help_text }
-    #  node(:reference_identifier, :if => lambda { |q| !q.reference_identifier.blank? }){ |q| q.reference_identifier }
-    #  node(:data_export_identifier,   :if => lambda { |q| !q.data_export_identifier.blank? }){ |q| q.data_export_identifier }
-    #  node(:type, :if => lambda { |q| q.display_type != "default" }){ |q| q.display_type }
-    #  node(:pick, :if => lambda { |q| q.pick != "none" }){ |q| q.pick }
+    child(:questions, :if => lambda{|x| x.is_a?(QuestionGroup)}) do
+      attributes :id
+      node(:text){ |q| q.split(q.text, :pre) }
+      node(:post_text, :if => lambda { |q| !q.split(q.text, :post).blank? }){ |q| q.split(q.text, :post) }
+      node(:help_text, :if => lambda { |q| !q.help_text.blank? }){ |q| q.help_text }
+      node(:reference_identifier, :if => lambda { |q| !q.reference_identifier.blank? }){ |q| q.reference_identifier }
+      node(:data_export_identifier,   :if => lambda { |q| !q.data_export_identifier.blank? }){ |q| q.data_export_identifier }
+      node(:type, :if => lambda { |q| q.display_type != "default" }){ |q| q.display_type }
+      node(:pick, :if => lambda { |q| q.pick != "none" }){ |q| q.pick }
 
-    #  child :answers, :if => lambda { |q| !q.answers.blank? } do
-    #    attributes :api_id => :id
-    #    node(:help_text, :if => lambda { |a| !a.help_text.blank? }){ |a| a.help_text }
-    #    node(:is_exclusive, :if => lambda { |a| a.is_exclusive }){ |a| a.is_exclusive }
-    #    node(:text){ |a| a.split(a.text, :pre) }
-    #    node(:post_text, :if => lambda { |a| !a.split(a.text, :post).blank? }){ |a| a.split(a.text, :post) }
-    #    node(:type, :if => lambda { |a| a.response_class != "answer" }){ |a| a.response_class }
-    #    node(:reference_identifier,   :if => lambda { |a| !a.reference_identifier.blank? }){ |a| a.reference_identifier }
-    #    node(:data_export_identifier, :if => lambda { |a| !a.data_export_identifier.blank? }){ |a| a.data_export_identifier }
-    #    node(:input_mask, :if => lambda { |a| !a.input_mask.blank? }){ |a| a.input_mask }
-    #    node(:input_mask_placeholder, :if => lambda { |a| !a.input_mask_placeholder.blank? }){ |a| a.input_mask_placeholder }
-    #  end
+      child :answers, :if => lambda { |q| !q.answers.blank? } do
+        attributes :api_id => :id
+        node(:help_text, :if => lambda { |a| !a.help_text.blank? }){ |a| a.help_text }
+        node(:is_exclusive, :if => lambda { |a| a.is_exclusive }){ |a| a.is_exclusive }
+        node(:text){ |a| a.split(a.text, :pre) }
+        node(:post_text, :if => lambda { |a| !a.split(a.text, :post).blank? }){ |a| a.split(a.text, :post) }
+        node(:type, :if => lambda { |a| a.response_class != "answer" }){ |a| a.response_class }
+        node(:reference_identifier,   :if => lambda { |a| !a.reference_identifier.blank? }){ |a| a.reference_identifier }
+        node(:data_export_identifier, :if => lambda { |a| !a.data_export_identifier.blank? }){ |a| a.data_export_identifier }
+        node(:input_mask, :if => lambda { |a| !a.input_mask.blank? }){ |a| a.input_mask }
+        node(:input_mask_placeholder, :if => lambda { |a| !a.input_mask_placeholder.blank? }){ |a| a.input_mask_placeholder }
+      end
 
     #  child :dependency, :if => lambda { |q| q.dependency } do
     #    attributes :rule
