@@ -8,7 +8,7 @@ child :sections, :root => "sections", :object_root => false do
   node(:description,                :if => lambda {|s| !s.description.blank? }){|s| s.description }
   node(:reference_identifier,       :if => lambda {|s| !s.reference_identifier.blank? }){|s| s.reference_identifier }
 
-  child :questions, :root => "questions", :object_root => false  do
+  child :questions_and_groups, :root => "questions", :object_root => false  do
     # both questions and question_groups have id, text, help_text, reference_identifier, and type
     attribute :id
     node(:text,                     :if => lambda { |q| q.is_a?(Question)}){ |q| q.split(q.text, :pre) }
