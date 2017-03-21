@@ -78,7 +78,7 @@ child :sections, :root => "sections", :object_root => false do
     #      node(:value, :if => lambda { |d| d.answer && d.answer.response_class != "answer" && d.as(d.answer.response_class) }){ |d| d.as(d.answer.response_class)}
     #    end
     #  end
-    #end
+    end
   end
 
 end
