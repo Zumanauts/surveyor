@@ -38,6 +38,32 @@ module Surveyor
         end.compact
       end
 
+      def groups
+
+        # this method puts non-group questions to fake groups, to have nice-aligned question tree
+
+        cur_group = nil
+
+        questions.each_with_index.map do |q,i|
+
+          if q.part_of_group?
+            cur_group = q.question_group
+          else
+            cur_group = QuestionGroup.new(display_type: "none")
+          end if cur_group.nil?
+
+          cur_group.questions << q unless q.part_of_group?
+
+          if (i+1 >= questions.size) or (q.question_group_id != questions[i+1].question_group_id)
+            tmp = cur_group
+            cur_group = nil
+            tmp
+          end
+
+        end.compact
+      end
+
+
       def translation(locale)
         {:title => self.title, :description => self.description}.with_indifferent_access.merge(
           (self.survey.translation(locale)[:survey_sections] || {})[self.reference_identifier] || {}
