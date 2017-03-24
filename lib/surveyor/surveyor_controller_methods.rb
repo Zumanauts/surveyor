@@ -97,11 +97,8 @@ module Surveyor
     end
 
 
-    def survey_by_response_set_id
-      rs = ResponseSet.find(params[:rs_id])
-      render_404 and return if rs.nil?
-      @survey = rs.survey
-      render_404 and return if @survey.nil?
+    def show_survey
+      @survey = Survey.find(params[:id])
       render "surveyor/export"
     end
 

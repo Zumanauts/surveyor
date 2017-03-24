@@ -9,7 +9,7 @@ Surveyor::Engine.routes.draw do
   # match '/schemas', :to                                     => 'surveyor#new', :as    => 'available_surveys', :via => :get
   # match '/:survey_code', :to                         => 'surveyor#create', :as => 'take_survey', :via       => :post
   # match '/schemas/:survey_code', :to                         => 'surveyor#export', :as => 'export_survey', :via     => :get
-  match '/schemas/:rs_id', :to              => 'surveyor#survey_by_response_set_id', :as    => 'export_survey_by_rs', :via     => :get, constraints: { format: 'json' }
+  match '/schemas/:id', :to              => 'surveyor#show_survey', :as    => 'export_survey_by_id', :via     => :get, constraints: { format: 'json' }
 
   # match '/:survey_code/:response_set_code', :to      => 'surveyor#show', :as   => 'view_my_survey', :via    => :get
   # match '/:survey_code/:response_set_code/take', :to => 'surveyor#edit', :as   => 'edit_my_survey', :via    => :get
