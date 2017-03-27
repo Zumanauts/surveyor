@@ -104,7 +104,13 @@ module Surveyor
 
 
     def responses_index
-      @responses = Response.joins(:response_set).includes([:answer, :question]).where('response_sets.id = ?', params[:rs_id])
+
+      rsId = params[:rs_id]
+      sectionId = params[:section_id]
+
+      @responses = Response.joins(:response_set).includes([:answer, :question])
+                       .where('response_sets.id = ?', rsId)
+      @responses = @responses.where('survey_section_id = ?', sectionId) unless sectionId.nil?
       render "surveyor/responses_index"
     end
 
@@ -157,7 +163,7 @@ module Surveyor
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def response_params
-      params.require(:response).permit(:answer_id, :question_id, :value, :response_set_id)
+      params.require(:response).permit(:answer_id, :question_id, :value, :response_set_id, :survey_section_id)
     end
 
 
