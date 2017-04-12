@@ -163,7 +163,8 @@ module Surveyor
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def response_params
-      params.require(:response).permit(:answer_id, :question_id, :value, :response_set_id, :survey_section_id)
+      params.require(:response).permit(:answer_id, :question_id, :value, :response_set_id,
+                                       :survey_section_id, :response_group)
     end
 
 
