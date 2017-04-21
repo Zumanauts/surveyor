@@ -17,6 +17,9 @@ child :sections, :root => "sections", :object_root => false do
         attribute :id
         attribute :display_width => :width
 
+        node(:width,                     :if => lambda { |q| !q.display_width.nil?}){ |q| q.display_width }
+        node(:custom_class,              :if => lambda { |q| !q.custom_class.nil?}){ |q| q.custom_class }
+
         node(:text,                     :if => lambda { |q| q.is_a?(Question)}){ |q| q.split(q.text, :pre) }
         node(:help_text,                :if => lambda { |q| !q.help_text.blank? }){ |q| q.help_text }
         node(:reference_identifier,     :if => lambda { |q| !q.reference_identifier.blank? }){ |q| q.reference_identifier }
