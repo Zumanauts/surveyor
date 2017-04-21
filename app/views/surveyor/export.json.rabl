@@ -15,6 +15,8 @@ child :sections, :root => "sections", :object_root => false do
       child :questions, :root => "questions", :object_root => false  do
         # both questions and question_groups have id, text, help_text, reference_identifier, and type
         attribute :id
+        attribute :display_width => :width
+
         node(:text,                     :if => lambda { |q| q.is_a?(Question)}){ |q| q.split(q.text, :pre) }
         node(:help_text,                :if => lambda { |q| !q.help_text.blank? }){ |q| q.help_text }
         node(:reference_identifier,     :if => lambda { |q| !q.reference_identifier.blank? }){ |q| q.reference_identifier }
